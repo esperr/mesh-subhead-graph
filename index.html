@@ -535,11 +535,12 @@ function getprint(type) {
     } else {
       var chartsvg = document.getElementsByTagName("svg")[0];
     }
+    console.log(chartsvg);
     var cln = chartsvg.cloneNode(true);
     cln.setAttribute("id", "printchart");
 
-    cln.setAttribute("version", 1.1);
-    cln.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    //cln.setAttribute("version", 1.1);
+    //cln.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 
     var node = document.createElement("div");
     node.setAttribute("style", "display: none;");

@@ -557,6 +557,14 @@ function getprint(type) {
     }
 
     printSvg.setAttributeNS(null,"height",myheight+25);
+    var newRect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+    newRect.setAttributeNS(null,"width",mywidth);
+    newRect.setAttributeNS(null,"height","25");
+    newRect.setAttributeNS(null,"x","0");
+    newRect.setAttributeNS(null,"y",myheight);
+    newRect.setAttributeNS(null,"style","fill:white;stroke:white;");
+    printSvg.appendChild(newRect);
+
     appendText("Made with Mesh Subheading Graph: http://esperr.github.io/mesh-subhead-graph/", "darkgrey", 15, myheight+18, "normal");
     //alltext.setAttribute("font-family", "Roboto");
     var xmlString = (new XMLSerializer).serializeToString(printSvg);

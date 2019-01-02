@@ -407,7 +407,7 @@ function displayCounts(searchIndex) {
            },
       legend: { position: 'none' },
        vAxis: {
-         title: 'Category'
+         title: 'Subheading'
          },
        bars: 'horizontal'
       };
@@ -430,7 +430,7 @@ function displayCounts(searchIndex) {
                }
              },
              vAxis: {
-               title: 'Category'
+               title: 'Subheading'
              }
            };
 
@@ -533,13 +533,14 @@ function compareTerms(searchone, searchtwo) {
                min: -.8
              }
            },
-           vAxis: { title: 'Category' }
+           vAxis: { title: 'Subheading' }
          };
 
     var myCNodes = document.getElementsByClassName("comparechart");
     var myCNode = myCNodes[0];
     var chart = new google.charts.Bar( myCNode );
     chart.draw(termcompdata, google.charts.Bar.convertOptions(compareoptions));
+    $(".comparechart").after('<br /><br /><br />');
     $(".comparechart").append('<a href="#!" class="printMe">Printable version</a></dt>');
 }
 
@@ -574,6 +575,14 @@ function getprint(type) {
     }
 
     printSvg.setAttributeNS(null,"height",myheight+25);
+    var newRect = document.createElementNS("http://www.w3.org/2000/svg","rect");
+    newRect.setAttributeNS(null,"width",mywidth);
+    newRect.setAttributeNS(null,"height","25");
+    newRect.setAttributeNS(null,"x","0");
+    newRect.setAttributeNS(null,"y",myheight);
+    newRect.setAttributeNS(null,"style","fill:white;stroke:white;");
+    printSvg.appendChild(newRect);
+
     appendText("Made with Mesh Subheading Graph: http://esperr.github.io/mesh-subhead-graph/", "darkgrey", 15, myheight+18, "normal");
     //alltext.setAttribute("font-family", "Roboto");
     var xmlString = (new XMLSerializer).serializeToString(printSvg);

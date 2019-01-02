@@ -333,7 +333,7 @@ function esearch(term, searchstr) {
   $.ajax({
 	url: 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi',
   error: function () {
-    //startOver();
+    startOver();
     //alert("Oops, something went wrong. Please try again!")
     return;
   },
